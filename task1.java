@@ -8,24 +8,23 @@ import org.json.simple.JSONObject;
 
 public class task1 {
     public static void main(String[] args) {
-        String text = "select * from students where ";
-        JSONObject jo = new JSONObject();
-        jo.put("name", "Ivanov");
-        jo.put("country", "Russia");
-        jo.put("city", "Moscow");
-        jo.put("age", null);
+        String requestText = "select * from students where ";
+        JSONObject stringJsonData = new JSONObject();
+        stringJsonData.put("name", "Ivanov");
+        stringJsonData.put("country", "Russia");
+        stringJsonData.put("city", "Moscow");
+        stringJsonData.put("age", null);
 
-
-        System.out.println(jo.toJSONString());
-        name(jo, text);
+        System.out.println(stringJsonData.toJSONString());
+        WhereRequest(stringJsonData, requestText);
     }
-    public static void name(JSONObject jo, String sql) {
-        StringBuilder a = new StringBuilder(sql);
-        AddKey(jo, a, "name", false);
-        AddKey(jo, a, "country", true);
-        AddKey(jo, a, "city", true);
-        AddKey(jo, a, "age", true);
-        System.out.println(a);
+    public static void WhereRequest(JSONObject jo, String sql) {
+        StringBuilder filterOptions = new StringBuilder(sql);
+        AddKey(jo, filterOptions, "name", false);
+        AddKey(jo, filterOptions, "country", true);
+        AddKey(jo, filterOptions, "city", true);
+        AddKey(jo, filterOptions, "age", true);
+        System.out.println(filterOptions);
     }
     public static void AddKey(JSONObject jo, StringBuilder sb, String key, Boolean isAddAnd) {
         var keyValue = jo.get(key);
