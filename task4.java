@@ -21,7 +21,7 @@ public class task4{
     }
     private static String StartProgramm() {
         
-        System.out.print("Введите start для запуска или end для завершения программы: ");
+        System.out.print("Введите start для запуска или любую клавишу для завершения программы: ");
         String textUser = iScanner.next();
         return textUser;
     }
